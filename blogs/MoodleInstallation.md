@@ -28,4 +28,8 @@ actually creates the database on disk.
 6. install the database
 7. run init behat
 
+To give Moodle HTTPS , since the OIDC flow only work on secure server, either configure the apache file or
+use reverse proxy. Can Traefik be used for drone? No, afaik docker socket is used which the drone strictly prohibits
+
+
 
