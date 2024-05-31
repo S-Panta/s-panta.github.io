@@ -1,0 +1,53 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the header */
+header {
+    color: black;
+    padding: 1em 0;
+}
+
+/* Styling the navbar */
+.navbar {
+    display: flex;
+    color: black;
+    justify-content: right;
+    align-items: center;
+}
+
+
+
+/* Styling the nav-item */
+.nav-item {
+    margin: 0 15px;
+}
+
+/* Styling the nav-link */
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+}
