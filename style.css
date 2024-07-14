@@ -1,53 +1,82 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html {
+    overflow-y: scroll;
 }
 
-/* Styling the header */
-header {
-    color: black;
-    padding: 1em 0;
+a#logo {
+    color: #000000;
 }
 
-/* Styling the navbar */
-.navbar {
-    display: flex;
-    color: black;
-    justify-content: right;
-    align-items: center;
-}
-
-
-
-/* Styling the nav-item */
-.nav-item {
-    margin: 0 15px;
-}
-
-/* Styling the nav-link */
-.nav-link {
-    color: black;
+a {
+    color: #e50053;
     text-decoration: none;
-    font-size: 1.2em;
-    padding: 10px 15px;
-    transition: background-color 0.3s, color 0.3s;
+}
+a:hover {
+    text-decoration: underline;
 }
 
-.nav-link:hover {
-    background-color: #555;
-    color: #fff;
-    border-radius: 5px;
+body {
+    text-rendering: optimizeLegibility;
+    margin: 10px auto 200px;
+    width: 700px;
+    font-family: serif;
+    font-size: 18px;
+    line-height: 24px;
+    background: #fcfcfc;
+    color: black;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
+header {
+    color: #777;
+    text-transform: lowercase;
+    font-size: 20px;
+    line-height: 30px;
+}
+header nav {
+    float: right;
+    font-size: 18px;
+    line-height: 30px;
+}
 
-    .nav-item {
-        margin: 10px 0;
-    }
+nav a{
+    padding-right:5px;
+  }
+
+
+hr.main-separator {
+    border: none;
+    padding: 0;
+    margin: 12px 0px;
+    height: 1px;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 30px;
+}
+footer nav {
+    margin: 0 auto;
+    text-align: center;
+}
+ 
+
+/* Styles for blogs */
+/* Index Pages ------------------------------------------------------------- */
+ol.index {
+    list-style-type: none;
+    padding: 0px;
+}
+ol.index li.item {
+    margin-bottom: 24px;
+}
+ol.index p.snippet {
+    margin-top: 2px;
+    font-style: italic;
+}
+ol.index p.date {
+    margin: 0px;
+    color: #666;
+    float: right;
 }
