@@ -22,9 +22,3 @@ knowing who the user is
 
 - Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later. A cookie definition begins with a name-value pair.
 
-- 
-- 
-
-- 
-
-- 
