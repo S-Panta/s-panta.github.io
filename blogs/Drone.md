@@ -12,6 +12,3 @@
 
 - Entry Points in container
 - For drone 1.4, `4` trailing slahs should be used for escape character like `\n` or `\t` but for higher version , five trailing slash to be used.
-
-
-### Setting up behat screenshot on drone when test fails
