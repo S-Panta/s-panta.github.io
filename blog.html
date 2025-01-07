@@ -1,54 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href = '../style.css' rel = 'stylesheet'>
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELEL95LN6"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-3ELEL95LN6');
-        </script>
-    </head>
-    <body>
-        <header>
-            <a id = 'logo' href = '/'> sabin panta </a>
-            <nav>
-                <a href = 'blog-list.html'>blogs</a>
-                <a href = 'project.html'>personal projects</a>
-                <a href = 'books-review.html'>readings</a>
-                <a href = 'philosophy.html'>philosophy</a>
-            </nav>
-        </header>
-        <hr class='main-separator'/>
+<head>
+    <meta charset="UTF-8">
+    <link href='../style.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELEL95LN6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-        <div id="post-content">
-                <!-- content will be loaded here -->
-        </div>
+        gtag('config', 'G-3ELEL95LN6');
+    </script>
+</head>
 
-        <hr class='main-separator'/>
-        <footer>
-            <nav>
-                <a href = 'https://github.com/S-Panta'>GitHub</a>
-                <a href = 'https://www.linkedin.com/in/s-panta/'>Linkedin</a>
-            </nav>
-        </footer>
+<body>
+    <header>
+        <a id='logo' href='/'> sabin panta </a>
+        <nav>
+            <a href='blog-list.html'>blogs</a>
+            <a href='project.html'>personal projects</a>
+            <a href='books-review.html'>readings</a>
+            <a href='philosophy.html'>philosophy</a>
+        </nav>
+    </header>
+    <hr class='main-separator' />
 
-        <script>
-            const params = new URLSearchParams(window.location.search);
-            const post = params.get('post');
-            const parseMarkDownContent = async (contentUrl)=>{
-                const response = await fetch(contentUrl)
-                const resBody = await response.text()
-                const parsedContent = marked.marked(resBody)
-                document.getElementById('post-content').innerHTML = parsedContent
-            }
-            parseMarkDownContent(`${post}.md`);    
-        </script>
+    <div id="post-content">
+        <!-- content will be loaded here -->
+    </div>
 
-    </body>
+    <hr class='main-separator' />
+    <footer>
+        <nav>
+            <a href='https://github.com/S-Panta'>GitHub</a>
+            <a href='https://www.linkedin.com/in/s-panta/'>Linkedin</a>
+        </nav>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script src="./script.js">  </script>
+
+</body>
+
 </html>
