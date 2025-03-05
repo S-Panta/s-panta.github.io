@@ -1,13 +1,10 @@
-<!-- This page is for rendering all blogs that will be fetch upon when each items are clicked from blog-list page -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link href='../style.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELEL95LN6"></script>
     <script>
@@ -17,8 +14,8 @@
 
         gtag('config', 'G-3ELEL95LN6');
     </script>
-
 </head>
+
 <body>
     <header>
         <a id='logo' href='/'> sabin panta </a>
@@ -28,24 +25,27 @@
             <a href = 'learn-cs.html'>TeachYourSelfCS</a>
         </nav>
     </header>
-    <hr class='main-separator' />
-
-    <div id="post-content">
-        <!-- content will be loaded here -->
-    </div>
 
     <hr class='main-separator' />
+
+    <main id='blog-page'>
+        <ol class='index'>
+            <li class='item'>
+                <a href='blog.html?post=concepts/rackets'>CS61A-Introduction to Rackets</a>
+                <p class='date'>June 26th, 2024</p>
+                <p class='snippet'>A dialects of Lisp</p>
+            </li>
+        </ol>
+    </main>
+
+    <hr class='main-separator' />
+
     <footer>
         <nav>
             <a href='https://github.com/S-Panta'>GitHub</a>
             <a href='https://www.linkedin.com/in/s-panta/'>Linkedin</a>
         </nav>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-    <script src="./script.js">  </script>
-
 </body>
 
 </html>
