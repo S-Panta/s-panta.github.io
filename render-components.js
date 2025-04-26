@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
-    fetch('navigation.html')
+    fetch('template.html')
     .then(response=>response.text())
     .then(data=>{
         const container = document.createElement('div')
@@ -7,5 +7,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('navbar').innerHTML=container.querySelector("#navbar").innerHTML
         document.getElementById('footer').innerHTML=container.querySelector("#footer").innerHTML
     })
-    .catch(error=>console.error("Error fetching navigation bar",error))
+    .catch(error=>console.error("Error fetching  templater",error))
 })
