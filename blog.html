@@ -1,4 +1,4 @@
-<!-- This page is for rendering all blogs that will be fetch upon when each items are clicked from blog-list page -->
+<!-- Template that renders all blogs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,27 +7,9 @@
     <meta charset="UTF-8">
     <link href='../style.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELEL95LN6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-3ELEL95LN6');
-    </script>
-
 </head>
 <body>
-    <header>
-        <a id='logo' href='/'> sabin panta </a>
-        <nav>
-            <a href = 'blog-list.html'>blogs</a>
-            <a href = 'project.html'>personal projects</a>
-            <a href = 'learn-cs.html'>TeachYourSelfCS</a>
-        </nav>
-    </header>
+    <div id="navbar"></div>
     <hr class='main-separator' />
 
     <div id="post-content">
@@ -35,17 +17,12 @@
     </div>
 
     <hr class='main-separator' />
-    <footer>
-        <nav>
-            <a href='https://github.com/S-Panta'>GitHub</a>
-            <a href='https://www.linkedin.com/in/s-panta/'>Linkedin</a>
-        </nav>
-    </footer>
+    <div id = 'footer'></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-    <script src="./script.js">  </script>
-
+    <script src="./render-markdown.js">  </script>
+    <script src="./render-components.js">  </script>
 </body>
 
 </html>

@@ -5,27 +5,10 @@
         <title>Sabin Panta</title>
         <link href = './style.css' rel = 'stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELEL95LN6"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-3ELEL95LN6');
-        </script>
     </head>
     
     <body>
-        <header>
-            <a id = 'logo' href = '/'> sabin panta </a>
-            <nav>
-                <a href = 'blog-list.html'>blogs</a>
-                <a href = 'project.html'>personal projects</a>
-                <a href = 'learn-cs.html'>TeachYourSelfCS</a>
-            </nav>
-        </header>
-
+        <div id = 'navbar'></div>
         <hr class='main-separator'/>
         <main id='home-page'>
             <p>Greetings! I am Sabin Panta from Nepal</p>
@@ -35,12 +18,7 @@
             </b>
         </main>
         <hr class='main-separator'/>
-        <footer>
-            <nav>
-                <a href = 'https://github.com/S-Panta'>GitHub</a>
-                <a href = 'https://www.linkedin.com/in/s-panta/'>Linkedin</a>
-            </nav>
-        </footer>
-
+        <div id = 'footer'></div>
+        <script src="./render-components.js">  </script>
     </body>
 </html>
