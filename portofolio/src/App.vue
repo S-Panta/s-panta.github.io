@@ -1,0 +1,103 @@
+<template>
+  <div>
+    <a id='logo' href='/'>Sabin Panta</a>
+    <nav>
+      <router-link to="/blogs">Blogs</router-link>
+      <router-link to="/cs-concepts">CS-Concepts</router-link>
+      <router-link to="/go-simplified">Let's Go</router-link> 
+    </nav>
+    <router-view />
+  </div>
+</template>
+
+<style>
+html {
+    overflow-y: scroll;
+}
+
+a#logo {
+    color: #000000;
+}
+
+a {
+    color: #e50053;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    margin: 10px auto 200px;
+    width: 700px;
+    font-family: serif;
+    font-size: 18px;
+    line-height: 24px;
+    background: #fcfcfc;
+    color: black;
+}
+
+#navbar {
+    color: #777;
+    font-size: 20px;
+    line-height: 30px;
+}
+#navbar nav {
+    float: right;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+nav a{
+    padding-right:5px;
+  }
+
+
+hr.main-separator {
+    border: none;
+    padding: 0;
+    margin: 12px 0px;
+    height: 1px;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #ddd;
+}
+
+#footer {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 30px;
+}
+#footer nav {
+    margin: 0 auto;
+    text-align: center;
+}
+ 
+
+/* Styles for blogs */
+/* Index Pages ------------------------------------------------------------- */
+ol.index {
+    list-style-type: none;
+    padding: 0px;
+}
+ol.index li.item {
+    margin-bottom: 24px;
+}
+ol.index p.snippet {
+    margin-top: 2px;
+    font-style: italic;
+}
+ol.index p.date {
+    margin: 0px;
+    color: #666;
+    float: right;
+}
+/* nav {
+  padding: 10px;
+  background-color: #eee;
+}
+router-link {
+  margin-right: 10px;
+  color:pink;
+} */
+</style>
