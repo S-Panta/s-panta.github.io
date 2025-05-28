@@ -59,7 +59,7 @@ thread2.join()
 
 print("Main thread: All threads are complete.")
 ```
-Two threads, besides the main execution thread, are started concurrently. Each thread is passed a different waiting time via keyword arguments (**kwargs). Although Python (up to version 3.12) uses the Global Interpreter Lock (GIL), which allows only one thread to execute Python bytecode at a time, the output of this code appears as if both threads are running in parallel. Starting Python 3.13, this could be disabled. See here for detail[https://docs.python.org/3/howto/free-threading-extensions.html] and [https://peps.python.org/pep-0703/]
+Two threads, besides the main execution thread, are started concurrently. Each thread is passed a different waiting time via keyword arguments (**kwargs). Although Python (up to version 3.12) uses the Global Interpreter Lock (GIL), which allows only one thread to execute Python bytecode at a time, the output of this code appears as if both threads are running in parallel. Starting Python 3.13, this could be disabled.  See this [guide](https://docs.python.org/3/howto/free-threading-extensions.html) and [PEP 703](https://peps.python.org/pep-0703/) for details.
 
 The output might look like this. The order might differ based on processing power of processor
 ```
