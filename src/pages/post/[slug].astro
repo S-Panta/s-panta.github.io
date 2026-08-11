@@ -6,7 +6,7 @@ import type { GetStaticPaths } from "astro";
 // these two are for getting recent article
 // to do : the code for getting this should be seperate from slug.astro page
 const posts = Object.entries(
-    import.meta.glob("../blogs/*.md", { eager: true }),
+    import.meta.glob("../../content/blogs/*.md", { eager: true }),
 );
 const urlForRecentPost = (file: string) => {
     const slug = file.split("/").at(-1)?.replace(".md", "");
@@ -15,7 +15,7 @@ const urlForRecentPost = (file: string) => {
 
 export const getStaticPaths = (async () => {
     const posts = Object.entries(
-        import.meta.glob("../blogs/*.md", {
+        import.meta.glob("../../content/blogs/*.md", {
             eager: true,
         }),
     );
