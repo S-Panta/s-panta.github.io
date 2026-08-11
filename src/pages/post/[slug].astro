@@ -1,0 +1,65 @@
+---
+import type { GetStaticPaths } from "astro";
+const posts = Object.values(import.meta.glob("../blogs/*.md", { eager: true }));
+
+export const getStaticPaths = (async () => {
+    // const posts = Object.values(
+    //     import.meta.glob("../blogs/*.md", { eager: true }),
+    // );
+    const posts = Object.entries(
+        import.meta.glob("../blogs/*.md", {
+            eager: true,
+        }),
+    );
+    return posts.map(([file, post]: any) => {
+        const parts = file.split("/");
+
+        const category = parts.at(-2);
+        const slug = parts.at(-1).replace(".md", "");
+
+        return {
+            params: {
+                category,
+                slug,
+            },
+            props: {
+                post,
+            },
+        };
+    });
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = post;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{post.frontmatter.title}</title>
+    </head>
+
+    <body>
+        <a href="/"> Home </a>
+        <a href="/post/"> Blog </a>
+
+        <p>{post.frontmatter.title}</p>
+        <p>Written by: {post.frontmatter.author}</p>
+        <Content />
+        <p>Post Archive:</p>
+        <ul>
+            {
+                posts.map((p: any) => (
+                    <li>
+                        <a href={p.url}>{p.frontmatter.title}</a>
+                        <p>heyy heyyyyyyyyyyyyyy</p>
+                    </li>
+                ))
+            }
+        </ul>
+    </body>
+</html>
