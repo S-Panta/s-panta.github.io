@@ -1,11 +1,19 @@
 ---
+import { slugify } from "astro:schema";
+import Layout from "../../Layout/Layout.astro";
 import type { GetStaticPaths } from "astro";
-const posts = Object.values(import.meta.glob("../blogs/*.md", { eager: true }));
+
+// these two are for getting recent article
+// to do : the code for getting this should be seperate from slug.astro page
+const posts = Object.entries(
+    import.meta.glob("../blogs/*.md", { eager: true }),
+);
+const urlForRecentPost = (file: string) => {
+    const slug = file.split("/").at(-1)?.replace(".md", "");
+    return `/post/${slug}`;
+};
 
 export const getStaticPaths = (async () => {
-    // const posts = Object.values(
-    //     import.meta.glob("../blogs/*.md", { eager: true }),
-    // );
     const posts = Object.entries(
         import.meta.glob("../blogs/*.md", {
             eager: true,
@@ -15,6 +23,7 @@ export const getStaticPaths = (async () => {
         const parts = file.split("/");
 
         const category = parts.at(-2);
+
         const slug = parts.at(-1).replace(".md", "");
 
         return {
@@ -31,35 +40,32 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props;
 const { Content } = post;
+// const { slug } = Astro.params;
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{post.frontmatter.title}</title>
-    </head>
+<Layout>
+    <!-- <p>{post.frontmatter.title}</p>
+    <p>Written by: {post.frontmatter.author}</p> -->
+    <div class="article-layout">
+        <main><Content /></main>
+        <!-- <Content /> -->
 
-    <body>
-        <a href="/"> Home </a>
-        <a href="/post/"> Blog </a>
-
-        <p>{post.frontmatter.title}</p>
-        <p>Written by: {post.frontmatter.author}</p>
-        <Content />
-        <p>Post Archive:</p>
-        <ul>
-            {
-                posts.map((p: any) => (
-                    <li>
-                        <a href={p.url}>{p.frontmatter.title}</a>
-                        <p>heyy heyyyyyyyyyyyyyy</p>
-                    </li>
-                ))
-            }
-        </ul>
-    </body>
-</html>
+        <div class="archive">
+            <p>Recent Articles</p>
+            <ul>
+                {
+                    posts.map(([file, post]: any) => (
+                        <li>
+                            <a href={urlForRecentPost(file)}>
+                                {post.frontmatter.title}
+                            </a>
+                            <p class="snippet">
+                                {post.frontmatter.description}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</Layout>
