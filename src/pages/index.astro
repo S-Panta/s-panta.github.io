@@ -1,25 +1,13 @@
 ---
-
+import Layout from "../Layout/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<a href="/"> Home </a>
-		<a href="/post/"> Blog </a>
-		<!-- <a href="/books/"> CS Literature </a> -->
-		<p>Greetings! I am Sabin Panta</p>
-		<p>Reading | Coding</p>
-		<b
-			>If you don't fail at least 90 percent of the time, you're not
-			aiming high enough. - Alan Kay
-		</b>
-	</body>
-</html>
+<Layout title="Sabin Panta">
+	<p>Greetings! I am Sabin Panta</p>
+	<p>Reading | Coding</p>
+
+	<b>
+		If you don't fail at least 90 percent of the time, you're not aiming
+		high enough. - Alan Kay
+	</b>
+</Layout>
