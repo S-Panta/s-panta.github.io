@@ -1,13 +1,84 @@
 ---
+import { Icon } from "astro-icon/components";
 import Layout from "../Layout/Layout.astro";
 ---
 
 <Layout title="Sabin Panta">
-	<p>Greetings! I am Sabin Panta</p>
-	<p>Reading | Coding</p>
+	<section id="intro" class="intro">
+		<div class="profile-block">
+			<img
+				src="/photo.jpg"
+				alt="Sabin Panta"
+				class="profile-photo"
+				width="150"
+				height="150"
+			/>
+			<div class="contact-icons">
+				<a href="mailto:sabin.panta@usu.edu" aria-label="Email">
+					<Icon name="mdi:email-outline" />
+				</a>
+				<a
+					href="https://www.linkedin.com/in/s-panta/"
+					aria-label="LinkedIn"
+					target="_blank"
+					rel="noopener"
+				>
+					<Icon name="simple-icons:linkedin" />
+				</a>
+				<a
+					href="https://github.com/s-panta"
+					aria-label="GitHub"
+					target="_blank"
+					rel="noopener"
+				>
+					<Icon name="simple-icons:github" />
+				</a>
+			</div>
+		</div>
 
-	<b>
+		<div class="intro-text">
+			<p>
+				I am currently doing my Masters at Utah State University in
+				Civil and Environmental Engineering with an emphasis on
+				Intelligent Water Systems.
+			</p>
+		</div>
+	</section>
+
+	<section id="research" class="row">
+		<h2>Research</h2>
+		<ul>
+			<li>
+				My current research focuses on using MQTT communication protocol
+				to environmental sensor nodes for smarter sensor networks. The
+				word smarter is quite relative and subjective here.
+			</li>
+			<li>
+				Further I am exploring how these MQTT deployed sensor nodes can
+				do Adaptive Sampling and as a result achieve Situational
+				Awareness.
+			</li>
+		</ul>
+	</section>
+
+	<section id="experience" class="row">
+		<h2>Experience</h2>
+		<ul>
+			<li>Software Developer - 2 years</li>
+			<li>Civil Engineer - 2.5 years</li>
+		</ul>
+	</section>
+
+	<section id="projects" class="row">
+		<h2>Projects</h2>
+		<ul>
+			<!-- <li>Project one</li>
+			<li>Project two</li> -->
+		</ul>
+	</section>
+
+	<p class="quote">
 		If you don't fail at least 90 percent of the time, you're not aiming
 		high enough. - Alan Kay
-	</b>
+	</p>
 </Layout>
