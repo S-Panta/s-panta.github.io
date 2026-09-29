@@ -1,11 +1,11 @@
 ---
-title: 'Dumb mistake in Programming'
+title: 'True or False'
 pubDate: 2026-09-29
-description: 'When coding feels right but isn't'
+description: "When coding feels right but isn't"
 author: 'Sabin Panta'
 ---
 
-
+# True or False
 Sometime or A lot of time, you think your code works until it didn't work. Look at the following code snippet :
 
 ```python
@@ -45,7 +45,8 @@ else:
 
 ```
 However, the boolean of `http_error.response` returns false and therefore the variable `status_code` would always be None. Because for this python library, Response.__bool__() evaluates to True for status codes less than 400 (2xx and 3xx ranges) and False for 4xx and 5xx error codes, making it equivalent to checking response.ok.  __bool__ are the Python dunder method which as name suggest is used to find truthy or falsy of an object. Thus, my design was flawed here. The solution was simple. It just had to be 
-```py
+
+```python
   status_code = http_error.response.status_code
   cache_data = status_code == 429
 ```
