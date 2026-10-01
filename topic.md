@@ -8,3 +8,6 @@
 - [ ] Python queue
 - [ ] Python Consumer Producer Pattern
 - [ ] Python multithreading
+
+### Raspberry Pi deployment
+- [ ] Database deployment
