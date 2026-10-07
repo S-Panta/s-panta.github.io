@@ -1,5 +1,4 @@
 ---
-import { slugify } from "astro:schema";
 import Layout from "../../Layout/Layout.astro";
 import type { GetStaticPaths } from "astro";
 
@@ -22,13 +21,10 @@ export const getStaticPaths = (async () => {
     return posts.map(([file, post]: any) => {
         const parts = file.split("/");
 
-        const category = parts.at(-2);
-
         const slug = parts.at(-1).replace(".md", "");
 
         return {
             params: {
-                category,
                 slug,
             },
             props: {
@@ -40,21 +36,31 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props;
 const { Content } = post;
-// const { slug } = Astro.params;
+const { slug } = Astro.params;
+
+// newest first, skip the post being read, show at most 5
+const recentPosts = posts
+    .filter(([file]) => urlForRecentPost(file) !== `/post/${slug}`)
+    .sort(
+        ([, a]: any, [, b]: any) =>
+            new Date(b.frontmatter.pubDate).getTime() -
+            new Date(a.frontmatter.pubDate).getTime(),
+    )
+    .slice(0, 5);
 ---
 
-<Layout>
+<Layout title={post.frontmatter.title} wide>
     <!-- <p>{post.frontmatter.title}</p>
     <p>Written by: {post.frontmatter.author}</p> -->
     <div class="article-layout">
-        <main><Content /></main>
+        <article class="post-body"><Content /></article>
         <!-- <Content /> -->
 
-        <div class="archive">
-            <p>Recent Articles</p>
+        <aside class="archive">
+            <p class="archive-title">Recent Articles</p>
             <ul>
                 {
-                    posts.map(([file, post]: any) => (
+                    recentPosts.map(([file, post]: any) => (
                         <li>
                             <a href={urlForRecentPost(file)}>
                                 {post.frontmatter.title}
@@ -66,6 +72,6 @@ const { Content } = post;
                     ))
                 }
             </ul>
-        </div>
+        </aside>
     </div>
 </Layout>

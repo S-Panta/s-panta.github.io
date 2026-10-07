@@ -1,7 +1,7 @@
 ---
-import "../pages/styles/utils.css";
+import "../pages/styles/styles.css";
 import Nav from "../components/Nav.astro";
-const { title = "Sabin Panta" } = Astro.props;
+const { title = "Sabin Panta", wide = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -14,7 +14,7 @@ const { title = "Sabin Panta" } = Astro.props;
 
     <body>
         <Nav />
-        <main class="container">
+        <main class={wide ? "container container--wide" : "container"}>
             <slot />
         </main>
     </body>
