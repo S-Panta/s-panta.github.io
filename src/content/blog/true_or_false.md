@@ -5,7 +5,6 @@ description: "When coding feels right but isn't"
 author: 'Sabin Panta'
 ---
 
-# True or False
 
 Sometimes, or a lot of the time, you think your code works until it doesn't. Look at the following code snippet:
 

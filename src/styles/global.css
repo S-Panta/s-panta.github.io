@@ -186,3 +186,53 @@ body {
     gap: 0.4rem;
 
 }
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.post-list li:first-child {
+    padding-top: 0;
+}
+
+.post-list a {
+    font-size: 1.1rem;
+}
+
+.post-list time {
+    color: #666;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.post-list .snippet {
+    grid-column: 1 / -1;
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+}
+
+.post-body h1 {
+    margin-bottom: 0.25rem;
+}
+
+.post-body .meta {
+    margin-top: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.ask-ai {
+    font-size: 0.9rem;
+}

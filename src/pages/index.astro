@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import Layout from "../Layout/Layout.astro";
+import Layout from "../layouts/Layout.astro";
+import { cvUrl, askAiUrl } from "../links";
 ---
 
 <Layout title="Sabin Panta">
@@ -33,7 +34,19 @@ import Layout from "../Layout/Layout.astro";
 				>
 					<Icon name="simple-icons:github" />
 				</a>
+				<a
+					href={cvUrl}
+					aria-label="CV (PDF)"
+					title="CV"
+					target="_blank"
+					rel="noopener"
+				>
+					<Icon name="mdi:file-document-outline" />
+				</a>
 			</div>
+			<a class="ask-ai" href={askAiUrl} target="_blank" rel="noopener">
+				Ask AI about me
+			</a>
 		</div>
 
 		<div class="intro-text">
@@ -66,14 +79,6 @@ import Layout from "../Layout/Layout.astro";
 		<ul>
 			<li>Software Developer - 2 years</li>
 			<li>Civil Engineer - 2.5 years</li>
-		</ul>
-	</section>
-
-	<section id="projects" class="row">
-		<h2>Projects</h2>
-		<ul>
-			<!-- <li>Project one</li>
-			<li>Project two</li> -->
 		</ul>
 	</section>
 

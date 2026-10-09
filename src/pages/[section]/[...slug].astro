@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { sections } from "../../sections";
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const s of sections) {
+    const entries = await getCollection(s.name);
+    for (const entry of entries) {
+      paths.push({
+        params: { section: s.name, slug: entry.id },
+        props: { s, entry, entries },
+      });
+    }
+  }
+  return paths;
+}
+
+const { s, entry, entries } = Astro.props;
+const { Content } = await render(entry);
+
+// newest first, skip the one being read, show at most 5
+const recent = entries
+  .filter((e) => e.id !== entry.id)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<Layout title={entry.data.title} wide>
+  <div class="article-layout">
+    <article class="post-body">
+      <h1>{entry.data.title}</h1>
+      <p class="meta">
+        {
+          entry.data.pubDate.toLocaleDateString("en-US", {
+            dateStyle: "long",
+            timeZone: "UTC",
+          })
+        }
+        · {entry.data.author}
+      </p>
+      <Content />
+    </article>
+
+    <aside class="archive">
+      <p class="archive-title">Recent in {s.label}</p>
+      <ul>
+        {
+          recent.map((e) => (
+            <li>
+              <a href={`/${s.name}/${e.id}/`}>{e.data.title}</a>
+              <p class="snippet">{e.data.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+  </div>
+</Layout>
