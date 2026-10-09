@@ -5,7 +5,6 @@ description: "Let's understand project design"
 author: 'Sabin Panta'
 ---
 
-# MVC Architecture Pattern
 When designing your project in NodeJs and other backend language, MVC design pattern are advised to follow. But what really is MVC patterns? Do we have to design our codebase according to certain pattern or aren't we allowed to be free and write all of them down in a single code file? 
 
 First innovation of MVC architecture in found in SmallTalk-80 where each class and objects are assigned on the basis of task that each performs.

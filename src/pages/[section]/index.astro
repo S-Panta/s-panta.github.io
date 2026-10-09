@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostList from "../../components/PostList.astro";
+import { sections } from "../../sections";
+
+export function getStaticPaths() {
+  return sections.map((s) => ({ params: { section: s.name }, props: { s } }));
+}
+
+const { s } = Astro.props;
+const entries = (await getCollection(s.name)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title={`${s.label} | Sabin Panta`}>
+  <h1>{s.heading}</h1>
+  <PostList entries={entries} base={s.name} />
+</Layout>

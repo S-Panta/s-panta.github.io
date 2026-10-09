@@ -1,84 +1,127 @@
 ---
 import { Icon } from "astro-icon/components";
-import Layout from "../Layout/Layout.astro";
+import Layout from "../layouts/Layout.astro";
+import { cvUrl, askAiUrl } from "../links";
+import { getCollection } from "astro:content";
+import { sections } from "../sections";
+
+// Latest posts across every section, newest first
+const recent = (
+	await Promise.all(
+		sections.map(async (s) =>
+			(await getCollection(s.name)).map((entry) => ({ entry, s })),
+		),
+	)
+)
+	.flat()
+	.sort(
+		(a, b) =>
+			b.entry.data.pubDate.valueOf() - a.entry.data.pubDate.valueOf(),
+	)
+	.slice(0, 2);
 ---
 
-<Layout title="Sabin Panta">
-	<section id="intro" class="intro">
-		<div class="profile-block">
-			<img
-				src="/photo.jpg"
-				alt="Sabin Panta"
-				class="profile-photo"
-				width="150"
-				height="150"
-			/>
-			<div class="contact-icons">
-				<a href="mailto:sabin.panta@usu.edu" aria-label="Email">
-					<Icon name="mdi:email-outline" />
-				</a>
-				<a
-					href="https://www.linkedin.com/in/s-panta/"
-					aria-label="LinkedIn"
-					target="_blank"
-					rel="noopener"
-				>
-					<Icon name="simple-icons:linkedin" />
-				</a>
-				<a
-					href="https://github.com/s-panta"
-					aria-label="GitHub"
-					target="_blank"
-					rel="noopener"
-				>
-					<Icon name="simple-icons:github" />
-				</a>
-			</div>
-		</div>
+<Layout title="Sabin Panta" wide>
+	<div class="article-layout">
+		<div class="home-main">
+			<section id="intro" class="intro">
+				<div class="profile-block">
+					<img
+						src="/photo.jpg"
+						alt="Sabin Panta"
+						class="profile-photo"
+						width="150"
+						height="150"
+					/>
+					<div class="contact-icons">
+						<a href="mailto:sabin.panta@usu.edu" aria-label="Email">
+							<Icon name="mdi:email-outline" />
+						</a>
+						<a
+							href="https://www.linkedin.com/in/s-panta/"
+							aria-label="LinkedIn"
+							target="_blank"
+							rel="noopener"
+						>
+							<Icon name="simple-icons:linkedin" />
+						</a>
+						<a
+							href="https://github.com/s-panta"
+							aria-label="GitHub"
+							target="_blank"
+							rel="noopener"
+						>
+							<Icon name="simple-icons:github" />
+						</a>
+						<a
+							href={cvUrl}
+							aria-label="CV (PDF)"
+							title="CV"
+							target="_blank"
+							rel="noopener"
+						>
+							<Icon name="mdi:file-document-outline" />
+						</a>
+					</div>
+					<a
+						class="ask-ai"
+						href={askAiUrl}
+						target="_blank"
+						rel="noopener"
+					>
+						Ask AI about me
+					</a>
+				</div>
 
-		<div class="intro-text">
-			<p>
-				I am currently doing my Masters at Utah State University in
-				Civil and Environmental Engineering with an emphasis on
-				Intelligent Water Systems.
+				<div class="intro-text">
+					<p>
+						I am currently doing my Masters at Utah State University
+						in Civil and Environmental Engineering with an emphasis
+						on Intelligent Water Systems.
+					</p>
+				</div>
+			</section>
+
+			<section id="research" class="row">
+				<h2>Research</h2>
+				<ul>
+					<li>MS thesis: adaptive sampling and situational awareness in hydrologic monitoring using IoT devices and MQTT. Advised by Dr. Jeff Horsburgh.</li>
+					<li>Building the pipeline that streams field sensor data to HydroServer over MQTT, with reliable delivery during outages.</li>
+				</ul>
+			</section>
+
+			<section id="experience" class="row">
+				<h2>Experience</h2>
+				<ul>
+					<li>Graduate Research Assistant, Utah Water Research Laboratory (2025 – present)</li>
+					<li>Software Developer, Jankari Tech (2023 – 2025): data ingestion pipelines and CI/CD</li>
+					<li>Civil Engineer, Hydro Engineering and Management Service (2022 – 2023): hydrological analysis and GIS automation in Python</li>
+					<li>Civil and office engineering roles in construction, Nepal (2020 – 2021)</li>
+				</ul>
+			</section>
+
+			<p class="quote">
+				If you don't fail at least 90 percent of the time, you're not
+				aiming high enough. - Alan Kay
 			</p>
 		</div>
-	</section>
 
-	<section id="research" class="row">
-		<h2>Research</h2>
-		<ul>
-			<li>
-				My current research focuses on using MQTT communication protocol
-				to environmental sensor nodes for smarter sensor networks. The
-				word smarter is quite relative and subjective here.
-			</li>
-			<li>
-				Further I am exploring how these MQTT deployed sensor nodes can
-				do Adaptive Sampling and as a result achieve Situational
-				Awareness.
-			</li>
-		</ul>
-	</section>
-
-	<section id="experience" class="row">
-		<h2>Experience</h2>
-		<ul>
-			<li>Software Developer - 2 years</li>
-			<li>Civil Engineer - 2.5 years</li>
-		</ul>
-	</section>
-
-	<section id="projects" class="row">
-		<h2>Projects</h2>
-		<ul>
-			<!-- <li>Project one</li>
-			<li>Project two</li> -->
-		</ul>
-	</section>
-
-	<p class="quote">
-		If you don't fail at least 90 percent of the time, you're not aiming
-		high enough. - Alan Kay
-	</p>
+		<aside class="archive">
+			<p class="archive-title">Recent</p>
+			<ul>
+				{
+					recent.map(({ entry, s }) => (
+						<li>
+							<a href={`/${s.name}/${entry.id}/`}>
+								{entry.data.title}
+							</a>
+							<p class="snippet">
+								{s.label} · {entry.data.description}
+							</p>
+						</li>
+					))
+				}
+			</ul>
+		</aside>
+	</div>
 </Layout>

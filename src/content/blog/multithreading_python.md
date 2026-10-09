@@ -5,7 +5,6 @@ description: 'Some advanced Python stuff'
 author: 'Sabin Panta'
 ---
 
-# MultiThreading in Python
 For heavy I/O bound task, multithreading is quite good work-around. To understand this, two terms should be very familiar to the developer
 - Process: A computer program is a static passive sets of instructions stored in disk and when this instruction is executed it's called process. 
 - Thread is therefore a part of process which shares the resources that process have. A single process could have lot of threads.
