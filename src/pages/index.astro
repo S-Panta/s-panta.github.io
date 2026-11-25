@@ -85,18 +85,39 @@ const recent = (
 			<section id="research" class="row">
 				<h2>Research</h2>
 				<ul>
-					<li>MS thesis: adaptive sampling and situational awareness in hydrologic monitoring using IoT devices and MQTT. Advised by Dr. Jeff Horsburgh.</li>
-					<li>Building the pipeline that streams field sensor data to HydroServer over MQTT, with reliable delivery during outages.</li>
+					<li>
+						MS thesis: adaptive sampling and situational awareness
+						in hydrologic monitoring using IoT and MQTT. Advised by
+						Dr. Jeff Horsburgh.
+					</li>
+					<li>
+						Building the pipeline that streams field sensor data to
+						HydroServer over MQTT, with reliable delivery during
+						outages.
+					</li>
 				</ul>
 			</section>
 
 			<section id="experience" class="row">
 				<h2>Experience</h2>
 				<ul>
-					<li>Graduate Research Assistant, Utah Water Research Laboratory (2025 – present)</li>
-					<li>Software Developer, Jankari Tech (2023 – 2025): data ingestion pipelines and CI/CD</li>
-					<li>Civil Engineer, Hydro Engineering and Management Service (2022 – 2023): hydrological analysis and GIS automation in Python</li>
-					<li>Civil and office engineering roles in construction, Nepal (2020 – 2021)</li>
+					<li>
+						Graduate Research Assistant, Utah Water Research
+						Laboratory (2025 – present)
+					</li>
+					<li>
+						Software Developer, Jankari Tech (2023 – 2025): data
+						ingestion pipelines and CI/CD
+					</li>
+					<li>
+						Civil Engineer, Hydro Engineering and Management Service
+						(2022 – 2023): hydrological analysis and GIS automation
+						in Python
+					</li>
+					<li>
+						Civil and office engineering roles in construction,
+						Nepal (2020 – 2021)
+					</li>
 				</ul>
 			</section>
 
@@ -109,18 +130,16 @@ const recent = (
 		<aside class="archive">
 			<p class="archive-title">Recent</p>
 			<ul>
-				{
-					recent.map(({ entry, s }) => (
-						<li>
-							<a href={`/${s.name}/${entry.id}/`}>
-								{entry.data.title}
-							</a>
-							<p class="snippet">
-								{s.label} · {entry.data.description}
-							</p>
-						</li>
-					))
-				}
+				{recent.map(({ entry, s }) => (
+					<li>
+						<a href={`/${s.name}/${entry.id}/`}>
+							{entry.data.title}
+						</a>
+						<p class="snippet">
+							{s.label} · {entry.data.description}
+						</p>
+					</li>
+				))}
 			</ul>
 		</aside>
 	</div>

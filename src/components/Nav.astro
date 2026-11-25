@@ -4,9 +4,15 @@ import { cvUrl } from "../links";
 ---
 
 <nav id="navbar">
-    <a id="logo" href="/">Sabin Panta</a>
+    <a id="logo" href="/">
+        Sabin Panta
+    </a>
     <div class="nav">
-        {sections.map((s) => <a href={`/${s.name}/`}>{s.label}</a>)}
-        <a href={cvUrl} target="_blank" rel="noopener">CV</a>
+        {sections.map((s) => (
+            <a href={`/${s.name}/`}>{s.label}</a>
+        ))}
+        <a href={cvUrl} target="_blank" rel="noopener">
+            CV
+        </a>
     </div>
 </nav>
